@@ -19,9 +19,9 @@ jobs:
     steps:
       - uses: appleboy/ssh-action@master
         with:
-          host: ${{ $IP }}
-          username: ${{ github.event.inputs.ip }}
-          key: ${{ github.event.inputs.username }}
+          host: ${{ github.event.inputs.ip }}
+          username: ${{ github.event.inputs.username }}
+          key: ${{ secrets.PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             whoami
