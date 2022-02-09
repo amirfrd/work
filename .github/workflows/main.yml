@@ -20,8 +20,8 @@ jobs:
       - uses: appleboy/ssh-action@master
         with:
           host: ${{ $IP }}
-          username: ${{ $USERNAME }}
-          key: ${{ secrets.PRIVATE_KEY }}
+          username: ${{ github.event.inputs.ip }}
+          key: ${{ github.event.inputs.username }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             whoami
