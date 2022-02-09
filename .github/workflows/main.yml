@@ -7,7 +7,7 @@ on:
         required: true
       user:
         type: environment
-        required: true
+        required: false
         
 env:
   IP: ${{ github.events.inputs.ip }}
