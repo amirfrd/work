@@ -8,16 +8,19 @@ on:
       username:
         type: string
         required: true
-      
-env:
-  IP: ${{ github.event.inputs.ip }}
-  USERNAME: ${{ github.event.inputs.username }}
+      path:
+        type: string
+        required: false
 
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - uses: appleboy/ssh-action@master
+      - name: Checkout
+        uses: actions/checkout@v2.4.0
+        
+      - name: connect to server
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ github.event.inputs.ip }}
           username: ${{ github.event.inputs.username }}
