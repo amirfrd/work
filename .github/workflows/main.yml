@@ -5,16 +5,22 @@ on:
       ip:
         type: string
         required: true
+      username:
+        type: string
+        required: true
+      
 env:
   IP: ${{ github.event.inputs.ip }}
+  USERNAME: ${{ github.event.inputs.username }}
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-#       - uses: actions/checkout@v2
-#       - uses: actions/setup-node@v2
-#         with:
-#           node-version: '14'
-#       - run: npm install -g bats
-#       - run: bats -v
-      - run: echo {$IP}
+      - uses: appleboy/ssh-action@master
+        with:
+          host: $IP
+          username: $USERNAME
+          key: ${{ secrets.PRIVATE_KEY }}
+          script: |
+            whoami
+            ls -al
