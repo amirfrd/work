@@ -5,7 +5,8 @@ on:
       ip:
         type: string
         required: true
-
+env:
+  IP: github.event.inputs.ip
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
