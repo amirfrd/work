@@ -5,13 +5,6 @@ on:
       ip:
         type: string
         required: true
-      user:
-        type: environment
-        required: false
-        
-env:
-  IP: ${{ github.events.inputs.ip }}
-
 
 jobs:
   Explore-GitHub-Actions:
