@@ -12,14 +12,15 @@ on:
 env:
   IP: ${{ github.event.inputs.ip }}
   USERNAME: ${{ github.event.inputs.username }}
+
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
       - uses: appleboy/ssh-action@master
         with:
-          host: $IP
-          username: $USERNAME
+          host: ${{ $IP }}
+          username: ${{ $USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
